@@ -19,7 +19,7 @@ Main work I have done:
 
 ## Effect
 
-![](./assets/result_02.gif)
+![](./assets/effect.gif)
 
 # Environment
 

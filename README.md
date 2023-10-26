@@ -19,7 +19,7 @@
 
 ## 二. 项目效果
 
-![](./assets/result_02.gif)
+![](./assets/effect.gif)
 
 ## 三. 环境配置
 
