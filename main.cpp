@@ -92,8 +92,7 @@ int run(char* videoPath)
         writer.write(img);
 
         // cv::imshow("img", img);
-        char c = waitKey(1);
-        if (c > 0) break;
+        // cv::waitKey(1);
     }
 
     cap.release();
