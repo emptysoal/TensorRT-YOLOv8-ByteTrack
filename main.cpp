@@ -91,8 +91,9 @@ int run(char* videoPath)
                 cv::Point(0, 30), 0, 0.6, cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
         writer.write(img);
 
-        // cv::imshow("img", img);
-        // cv::waitKey(1);
+        cv::imshow("img", img);
+        int c = cv::waitKey(1);
+	if (c == 27) break;  // ESC to exit
     }
 
     cap.release();
