@@ -50,17 +50,25 @@ apt install libeigen3-dev
 
 ## 四. 模型转换
 
-目的：把 `YOLOv8`的`pth`检测模型，转换成`TensorRT`的序列化文件，后缀 `.engine`
+目的：得到`TensorRT`的序列化文件，后缀 `.engine`
 
-步骤：
+- 首先获取 `wts` 格式的模型文件，链接：[yolov8s.wts](https://pan.baidu.com/s/16d_MqVlUxnjOhLxVyjQy8w)，提取码：gsqm
 
-1. 按照 [tensorrtx](https://github.com/wang-xinyu/tensorrtx/tree/master/yolov8) 项目操作，但作者亲测有以下注意点：
-   - 拷贝`gen_wts.py`文件时，拷贝到 `YOLOv8`一级`ultralytics`目录下即可，且不需要安装`YOLOv8`，无需按其所写的二级目录；
-   - 注意修改 `gen_wts.py` 文件中的输入输出目录。
+- 然后按以下步骤执行：
 
-2. 之后可成功得到 `yolov8s.engine` 文件（本人使用的是YOLOv8 s 模型，也可以使用其他的）
+```bash
+cd {TensorRT-YOLOv8-ByteTrack}/tensorrtx-yolov8/
+mkdir build
+cd build
+cp {path/to/yolov8s.wts} .
+cmake ..
+make
+./yolov8 -s yolov8s.wts yolov8s.engine s
 
-3. 在本项目的 `yolo`目录下新建 `engine`目录，并放入转换后的模型文件
+cd ../../
+mkdir yolo/engine
+cp tensorrtx-yolov8/build/yolov8s.engine yolo/engine
+```
 
 ## 五. 运行项目
 
@@ -75,7 +83,7 @@ make
 ./main ../videos/demo.mp4  # 传入自己视频的路径
 ```
 
-之后会在 `build` 目录下的到`result.mp4`，为跟踪效果的视频文件
+之后会在 `build` 目录下得到`result.mp4`，为跟踪效果的视频文件
 
 如果想要跟踪的视频实时播放，可解开`main.cpp`第 94 行的注释。
 

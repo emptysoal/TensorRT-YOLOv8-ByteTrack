@@ -44,15 +44,24 @@ apt install libeigen3-dev
 
 ## Model conversion
 
-Convert the `pth` model of `YOLOv8` into a serialized file of `TensorRT` 
+Get the serialized file of TensorRT, suffix.engine
 
-steps：
+- First get the wts format model file, link: [yolov8s.wts](https://pan.baidu.com/s/16d_MqVlUxnjOhLxVyjQy8w) , code：gsqm
+- Then follow these steps:
 
-1. refer to [tensorrtx](https://github.com/wang-xinyu/tensorrtx/tree/master/yolov8) , however, I have the following points of attention：
-   - When copy file `gen_wts.py`，copy to `YOLOv8` Level 1 `ultralytics` directory, there is no need to install `YOLOv8`
-   - Note the modification of the input/output directory in the `gen wts.py` file.
-2. The `yolov8s.engine` file can then be successfully obtained
-3. Create a new `engine` directory in the  `yolo` directory and put the converted model file in.
+```bash
+cd {TensorRT-YOLOv8-ByteTrack}/tensorrtx-yolov8/
+mkdir build
+cd build
+cp {path/to/yolov8s.wts} .
+cmake ..
+make
+./yolov8 -s yolov8s.wts yolov8s.engine s
+
+cd ../../
+mkdir yolo/engine
+cp tensorrtx-yolov8/build/yolov8s.engine yolo/engine
+```
 
 ## Run tracking
 
