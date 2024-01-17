@@ -78,8 +78,9 @@ int run(char* videoPath)
         for (int i = 0; i < output_stracks.size(); i++)
 		{
 			std::vector<float> tlwh = output_stracks[i].tlwh;
-			bool vertical = tlwh[2] / tlwh[3] > 1.6;
-			if (tlwh[2] * tlwh[3] > 20 && !vertical)
+			// bool vertical = tlwh[2] / tlwh[3] > 1.6;
+			// if (tlwh[2] * tlwh[3] > 20 && !vertical)
+			if (tlwh[2] * tlwh[3] > 20)
 			{
 				cv::Scalar s = tracker.get_color(output_stracks[i].track_id);
 				cv::putText(img, cv::format("%d", output_stracks[i].track_id), cv::Point(tlwh[0], tlwh[1] - 5), 
