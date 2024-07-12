@@ -1,6 +1,6 @@
 # TensorRT C++ api 部署 YOLOv8 + ByteTrack
 
-- 本人的一个更全面的 `TensorRT` 部署 `YOLOv8` 各任务的项目： [YOLOv8 检测、关键点、分割、跟踪](https://github.com/emptysoal/TensorRT-YOLOv8)
+- 本人另一个 `TensorRT` 部署 `YOLOv8` 各任务的项目： [YOLOv8 检测、关键点、分割、跟踪](https://github.com/emptysoal/TensorRT-YOLOv8)
 
 ## 一. 项目简介
 
