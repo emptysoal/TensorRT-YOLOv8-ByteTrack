@@ -1,5 +1,7 @@
 # TensorRT C++ api deploy YOLOv8 + ByteTrack
 
+- My other TensorRT project of YOLOv8 tasks: [YOLOv8 detection, key points, segmentation, tracking](https://github.com/emptysoal/TensorRT-YOLOv8)
+
 ## Introduction
 
 - Based on `TensorRT-v8` , deploy `YOLOv8` + `ByteTrack` ;
